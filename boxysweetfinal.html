@@ -1,0 +1,321 @@
+<<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxy Sweet | Exquisite Patisserie</title>
+    
+    <!-- Mengambil Font Mewah dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. PENGATURAN WARNA & VARIABEL --- */
+        :root {
+            --primary-pink: #f8c3cd; /* Pink Pastel Lembut */
+            --deep-pink: #d48c9a;    /* Pink Tua untuk aksen */
+            --bg-cream: #fff9f9;     /* Background Putih Gading */
+            --text-dark: #4a4a4a;    /* Abu-abu gelap untuk teks */
+            --white: #ffffff;
+            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif; /* Font Mewah */
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        /* --- 2. NAVBAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-pink);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--deep-pink);
+        }
+
+        /* --- 3. HERO SECTION (GAMBAR BESAR) --- */
+        .hero {
+            height: 90vh;
+            width: 100%;
+            /* Gambar Background Kue Mewah */
+            background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Overlay gelap transparan agar teks terbaca */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn-main {
+            padding: 15px 40px;
+            background-color: var(--white);
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            border: 1px solid var(--white);
+            cursor: pointer;
+        }
+
+        .btn-main:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* --- 4. ABOUT SECTION --- */
+        .about {
+            padding: 100px 10%;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--deep-pink);
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* --- 5. GALLERY / PRODUCTS --- */
+        .products {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: var(--white);
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* --- 6. FOOTER & INSTAGRAM --- */
+        footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .insta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--insta-gradient);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .insta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(220, 39, 67, 0.5);
+        }
+
+        .copyright {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* --- RESPONSIVE (HP) --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3rem; }
+            .nav-links { display: none; } /* Sembunyikan menu di HP */
+            .logo { margin: 0 auto; }
+            nav { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="logo">Boxy Sweet</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">Tentang</a>
+            <a href="#products">Koleksi</a>
+            <a href="#contact">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Exquisite Taste</h1>
+            <p>Kelezatan premium dalam setiap gigitan. Dikemas dengan cinta untuk momen spesial Anda.</p>
+            <a href="https://www.instagram.com/boxysweet41?igsh=MThlOW83dGFmYzlzdQ==" target="_blank" class="btn-main">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Tentang Boxy Sweet</h2>
+        <p>
+            <!-- GANTI TEKS INI DENGAN ISI DARI GOOGLE DOC ANDA -->
+            Boxy Sweet hadir untuk memberikan sentuhan kemewahan dalam setiap hidangan. 
+            Kami memadukan resep tradisional dengan sentuhan modern, menciptakan rasa yang tak terlupakan.
+            Setiap produk kami dibuat dengan bahan-bahan pilihan terbaik.
+        </p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title">Koleksi Pilihan</h2>
+        <div class="product-grid">
+            <!-- Produk 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=800&auto=format&fit=crop" alt="Cake" class="product-img">
+                <h3>Premium Cakes</h3>
+                <p>Kue lembut dengan topping premium.</p>
+            </div>
+            <!-- Produk 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop" alt="Gift Box" class="product-img">
+                <h3>Signature Gift Box</h3>
+                <p>Kemasan eksklusif untuk hadiah.</p>
+            </div>
+            <!-- Produk 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?q=80&w=800&auto=format&fit=crop" alt="Pastry" class="product-img">
+                <h3>Fresh Pastries</h3>
+                <p>Pastry segar setiap pagi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <span class="footer-logo">Boxy Sweet</span>
+        <p>Siap untuk memesan atau ingin konsultasi?</p>
+        
+        <!-- TOMBOL INSTAGRAM UTAMA -->
+        <a href="https://www.instagram.com/boxysweet41?igsh=MThlOW83dGFmYzlzdQ==" target="_blank" class="insta-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.28-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.79
